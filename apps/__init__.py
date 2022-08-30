@@ -3,7 +3,7 @@ from .now_time import data_time, web_time, file_time
 
 
 # %% BINANCE CLIENT
-from .auth import client
+from .auth import client, st_client
 
 
 # %% GENERATE LINK
