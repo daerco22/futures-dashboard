@@ -1,0 +1,9 @@
+streamlit==1.12.0
+streamlit-authenticator==0.2.1
+pandas==1.4.3
+tradingview-ta==3.2.10
+python-binance==1.0.16
+python-dotenv==0.20.0
+numpy==1.23.2
+openpyxl==3.0.10
+plotly-express==0.4.1
