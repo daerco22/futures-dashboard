@@ -4,7 +4,7 @@ from .now_time import data_time
 from .rank import percent_rank
 import streamlit as st
 
-@st.cache
+@st.cache(ttl=3600)
 def get_data(future_symbols):
     analysis_results = []
     column_name = ['Date-Time', 'Symbol', 'Close', '52wkHigh', '52wkLow', 'ATH', 'ATL', 'RSI', 'EMA20', 'EMA50', 'EMA100', 'change', 'volume']
