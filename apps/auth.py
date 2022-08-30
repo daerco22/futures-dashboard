@@ -11,6 +11,6 @@ api_secret = os.environ.get('api_secret')
 client = Client(api_key, api_secret)
 
 # %% STREAMLIT LOAD CLIENT
-api_key = st.secrets['api_key']
-api_secret = st.secrets['api_secret']
+api_key = st.secrets["api_key"]
+api_secret = st.secrets["api_secret"]
 st_client = Client(api_key, api_secret)
