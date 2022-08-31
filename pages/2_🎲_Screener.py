@@ -5,7 +5,7 @@ import streamlit_authenticator as stauth
 import pandas as pd
 import plotly.express as px
 
-from apps import setup_screener, download_screener_result, get_data, symbols, web_time, file_time
+from apps import setup_screener, download_screener_result, get_data, symbols, web_time, file_time, get_coin_mc_data
 
 # %%
 st.set_page_config(page_title='Screener | BPF', page_icon=':cyclone:', layout='wide')
@@ -34,7 +34,16 @@ if authentication_status == None:
 # %%
 if authentication_status:
 	st.title('Screener :game_die:')
-	st.write('Daily Timeframe Data')
+	mc, vol, dom, btc = get_coin_mc_data()
+	col1, col2, col3, col4 = st.columns([2,2,2,2])
+	col1.metric(label='', value='', delta=mc)
+	col1.write(':rocket: Crypto Total Market Cap')
+	col2.metric(label='', value='', delta=dom, delta_color="off")
+	col2.write(':signal_strength: BTC and ETH Dominance')
+	col3.metric(label='', value='', delta=vol)
+	col3.write(':moneybag: Binance 24h Vol')
+	col4.metric(label='', value='', delta=btc, delta_color="off")
+	col4.write(':large_orange_diamond: Binance BTC')
 	st.write('---')
 	with st.expander('Technical Indicators'):
 		st.write("""

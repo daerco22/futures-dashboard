@@ -5,7 +5,7 @@ import streamlit_authenticator as stauth
 import pandas as pd
 import plotly.express as px
 
-from apps import get_data, symbols, trading_pairs, web_time, generate_excel_download_link, generate_html_download_link
+from apps import get_data, symbols, trading_pairs, web_time, generate_excel_download_link, generate_html_download_link, get_coin_mc_data
 
 # %%
 st.set_page_config(page_title='Dashboard | BPF', page_icon=':cyclone:', layout='wide')
@@ -34,7 +34,16 @@ if authentication_status == None:
 # %%
 if authentication_status:
 	st.title('Dashboard :chart_with_upwards_trend:')
-	st.write('Daily Timeframe Data')
+	mc, vol, dom, btc = get_coin_mc_data()
+	col1, col2, col3, col4 = st.columns([2,2,2,2])
+	col1.metric(label='', value='', delta=mc)
+	col1.write(':rocket: Crypto Total Market Cap')
+	col2.metric(label='', value='', delta=dom, delta_color="off")
+	col2.write(':signal_strength: BTC and ETH Dominance')
+	col3.metric(label='', value='', delta=vol)
+	col3.write(':moneybag: Binance 24h Vol')
+	col4.metric(label='', value='', delta=btc, delta_color="off")
+	col4.write(':large_orange_diamond: Binance BTC')
 	st.write('---')
 	with st.expander(' Binance Perpetual Futures Momentum Scanner'):
 		st.write("""
