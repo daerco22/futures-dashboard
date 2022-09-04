@@ -1,7 +1,7 @@
 # %% CLEAN TICKERS FROM BINANCE
 def clean_trading_pairs(futures_info):
     trading_pairs = []
-    unwanted_symbols = {'BTCSTUSDT', 'BTCUSDT_220930', 'ETHUSDT_220930', 'INJUSDT', 'STGUSDT'}
+    unwanted_symbols = {'BTCSTUSDT', 'BTCUSDT_220930', 'ETHUSDT_220930', 'INJUSDT', 'STGUSDT', 'FOOTBALLUSDT'}
     valid_busd = {'TRBUSDT'}
     column_name = ['Symbol', 'Type', 'Subtype']
     for info in futures_info['symbols']:

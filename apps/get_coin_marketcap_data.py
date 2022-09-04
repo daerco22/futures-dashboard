@@ -2,25 +2,27 @@
 from bs4 import BeautifulSoup
 import requests
 import streamlit as st
-import re
+
+url = "https://coinmarketcap.com/rankings/exchanges/derivatives/"
 
 # %%
 @st.cache(ttl=300)
-def get_coin_mc_data():
-	url = "https://coinmarketcap.com/exchanges/binance/"
-
+def get_coin_mc_data(url):
 	result = requests.get(url)
 	doc = BeautifulSoup(result.text, "html.parser")
-
+	
 	market_cap = doc.find_all(text="Market Cap")
-	bin_vol = doc.find(class_="priceText")
 	dom = doc.find_all(text="Dominance")
-	btc = doc.find("p", color="neutral5", text=re.compile("BTC$"))
-
 	mc_parent = market_cap[0].parent
 	dom_parent = dom[0].parent
-
 	mc_a = mc_parent.find("a")
 	dom_a = dom_parent.find("a")
 
-	return mc_a.text, bin_vol.text, dom_a.text, btc.text
+	table = doc.find('table', class_='cmc-table')
+	tr = table.tbody.find('tr')
+	name = tr.find('p', text='Binance')
+	td = tr.find('td', style='text-align:right')
+	div = td.find('div')
+	vol_24hr = td.text.replace(div.text, "")
+
+	return mc_a.text, dom_a.text, name.text, vol_24hr

@@ -30,4 +30,4 @@ from .get_symbols import symbols, trading_pairs
 from .screener import setup_screener, download_screener_result
 
 # %% GET COIN MARKETCAP DATA
-from .get_coin_marketcap_data import get_coin_mc_data
+from .get_coin_marketcap_data import url, get_coin_mc_data
