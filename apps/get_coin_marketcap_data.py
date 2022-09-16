@@ -21,7 +21,7 @@ def get_coin_mc_data(url):
 	table = doc.find('table', class_='cmc-table')
 	tr = table.tbody.find('tr')
 	name = tr.find('p', text='Binance')
-	td = tr.find('td', style='text-align:right')
+	td = tr.find('td', style='text-align:end')
 	div = td.find('div')
 	vol_24hr = td.text.replace(div.text, "")
 
