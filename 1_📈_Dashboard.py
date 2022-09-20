@@ -42,8 +42,6 @@ if authentication_status:
 	col2.markdown(f'<font color=DeepSkyBlue>{dom}</font>', unsafe_allow_html=True)
 	col3.write(f':moneybag: {ex_name} 24h Vol')
 	col3.markdown(f'<font color=DeepSkyBlue>{ex_vol}</font>', unsafe_allow_html=True)
-	#col4.metric(label='', value='', delta=btc, delta_color="off")
-	#col4.write(':large_orange_diamond: Binance BTC')
 	st.write('---')
 	with st.expander(' Binance Perpetual Futures Momentum Scanner'):
 		st.write("""
