@@ -1,8 +1,8 @@
 credentials:
   usernames:
     dcuapiaco:
-      email: daerco22@gmail.com
-      name: Dann Cuapiaco
+      email: ginfreecss@mail.com
+      name: gin freecss
       password: $2b$12$SXBakMdVFBsWPYTNx9i7w.uIHL9In9Om4gAi8BT0qnwA1C57I7o3i
 cookie:
   expiry_days: 30
@@ -10,4 +10,4 @@ cookie:
   name: binance_perpectual_futures_dashboard
 preauthorized:
   emails:
-  - daerco22@gmail.com
+  - ginfreecss@mail.com
