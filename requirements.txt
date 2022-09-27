@@ -1,6 +1,6 @@
 streamlit==1.12.0
 streamlit-authenticator==0.2.1
-pandas==1.5.0
+pandas==1.1.5
 tradingview-ta==3.2.10
 python-binance==1.0.16
 python-dotenv==0.20.0
